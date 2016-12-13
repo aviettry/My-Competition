@@ -1,15 +1,14 @@
 /**
- * Filename: Player.h
+ * Filename: Player.hpp
  * Authors: Ali Viettry, Martin Hung
  * Description: This class will define nodes that store all information for a
  *              player who has registered for the competition.  
  * Date of Start: 2016-12-12
- * Last Modified: 2016-12-12
- * Last Modified by: Ali Viettry
+ * Last Modified: 2016-12-12, Ali Viettry
  */
 
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 
 #include <vector>
 #include <unordered_map>
@@ -147,4 +146,4 @@ class Player {
     bool removeEvent( string oldEvent );
 };
 
-#endif //PLAYER_H
+#endif /* PLAYER_HPP */
