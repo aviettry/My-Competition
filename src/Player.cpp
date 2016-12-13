@@ -6,9 +6,9 @@
 //
 //
 
-#include "Player.h"
+#include "Player.hpp"
 
-Player::Player() = default;
+Player::Player() {}
 
 Player::Player(std::string email,
                std::string name,
@@ -19,14 +19,14 @@ Player::Player(std::string email,
                std::string comments,
                int numEvents)
 {
-    this.email = email;
-    this.name = name;
-    this.gender = gender;
-    this.size = size;
-    this.phone = phone;
-    this.events = events;
-    this.comments = comments;
-    this.numEvents = numEvents;
+    this->email = email;
+    this->name = name;
+    this->gender = gender;
+    this->size = size;
+    this->phone = phone;
+    this->events = events;
+    this->comments = comments;
+    this->numEvents = numEvents;
 }
 
 

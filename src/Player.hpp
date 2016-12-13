@@ -31,7 +31,7 @@ class Player {
     string size;
 
     /** Player's phone number. */
-    int phone;
+    string phone;
 
     /** Container storing the events this player is registered for with their
      *  partners' names. 
@@ -65,9 +65,9 @@ class Player {
         string name, 
         string gender, 
         string size, 
-        string phone, 
+        string phone,
         unordered_map<string, string> events,
-        string comments
+        string comments,
         int numEvents);
 
     /* Setters and Getters */
