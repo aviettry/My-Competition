@@ -9,11 +9,11 @@
 #include "Event.hpp"
 
 Event::Event(std::string name) {
-    this.name = name;
+    this->name = name;
     
 }
 
-Event::~Event();
+Event::~Event() {}
 
 std::string Event::getName() {
     return name;
@@ -29,12 +29,7 @@ bool Event::addPlayer(Player* player) {
 }
 
 bool Event::removePlayer(std::string name) {
-    players.remove(findPlayer(name));
-    return true;
+    return false;
 }
 
-Player* findPlayer(std::string name) {
-    for (std::list<Player*>::iterator it = players.begin(); it != players.end(); ++it) {
-        if (name == (*it)->getName()) return *it;
-    }
-}
+Player* findPlayer(std::string name) {}
