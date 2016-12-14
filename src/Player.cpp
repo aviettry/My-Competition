@@ -15,9 +15,8 @@ Player::Player(std::string email,
                std::string gender,
                std::string size,
                std::string phone,
-               std::unordered_map<std::string, std::string> events,
-               std::string comments,
-               int numEvents)
+               std::unordered_map<Event*, Player*> events,
+               std::string comments)
 {
     this->email = email;
     this->name = name;
@@ -26,7 +25,6 @@ Player::Player(std::string email,
     this->phone = phone;
     this->events = events;
     this->comments = comments;
-    this->numEvents = numEvents;
 }
 
 
@@ -49,19 +47,19 @@ std::string Player::setPhoneNumber(std::string newPhone) {
 }
 
 
-void Player::setEvent(std::string newEvent) {
-    events[newEvent];
+void Player::addEvent(Event* newEvent) {
+    events[newEvent] = nullptr;
 }
 
-std::string Player::setEvent(std::string newEvent, std::string newPartner) {
-    std::string temp = events[newEvent];
+Player* Player::addEvent(Event* newEvent, Player* newPartner) {
+    Player* temp = events[newEvent];
     events[newEvent] = newPartner;
-    return (temp == "") ? newPartner : temp;
+    return (temp == nullptr) ? newPartner : temp;
     
 }
 
 
-bool Player::removeEvent(std::string oldEvent) {
+bool Player::removeEvent(Event* oldEvent) {
     return (bool) events.erase(oldEvent);
 }
 
@@ -70,3 +68,4 @@ std::string Player::getEmail() { return email; }
 std::string Player::getSize() { return size; }
 std::string Player::getPhoneNumber() { return phone; }
 std::string Player::getComments() { return comments; }
+int Player::getNumEvents() { return events.size(); }

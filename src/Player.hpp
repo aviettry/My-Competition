@@ -14,38 +14,37 @@
 #include <unordered_map>
 #include <string>
 
-using namespace std;
+#include "Event.hpp"
+
+class Event;
 
 class Player {
   private:
     /** Player's email address. */
-    string email;
+    std::string email;
 
     /** Player's name. */
-    string name;
+    std::string name;
 
     /** Player's gender. */
-    string gender;
+    std::string gender;
 
     /** Player's shirt size. */
-    string size;
+    std::string size;
 
     /** Player's phone number. */
-    string phone;
+    std::string phone;
 
     /** Container storing the events this player is registered for with their
      *  partners' names. 
      *
-     * @type string The name of the event.
-     * @type string The name of the partner in the event.
+     * @type Event* The event the player is registering for.
+     * @type Player* The partner in the event.
      */
-    unordered_map<string, string> events;
+    std::unordered_map<Event*, Player*> events;
 
     /** Comments from this player. */
-    string comments;
-
-    /** Number of events this player signed up for. */
-    int numEvents;
+    std::string comments;
 
   public:
     /** Empty constructor for Player node. */
@@ -61,14 +60,13 @@ class Player {
      * @param comments This player's comments.
      */
     Player( 
-        string email, 
-        string name, 
-        string gender, 
-        string size, 
-        string phone,
-        unordered_map<string, string> events,
-        string comments,
-        int numEvents);
+           std::string email,
+           std::string name,
+           std::string gender,
+           std::string size,
+           std::string phone,
+           std::unordered_map<Event*, Player*> events,
+           std::string comments);
 
     /* Setters and Getters */
 
@@ -77,27 +75,27 @@ class Player {
      * @param newEmail The new email address for this player.
      * @return Returns the old email address.
      */
-    string setEmail( string newEmail );
+    std::string setEmail( std::string newEmail );
     
     /** Change the current shirt size. 
      *
      * @param newSize The new size for this player.
      * @return Returns the old size.
      */
-    string setSize( string newSize );
+    std::string setSize( std::string newSize );
 
     /** Change the current phone number.
      * 
      * @param newPhone The new phone number for this player. 
      * @return Returns the old phone number.
      */
-    string setPhoneNumber( string newPhone );
+    std::string setPhoneNumber( std::string newPhone );
 
     /** Add singles event to events.
      *
      * @param newEvent The singles event to add for this player.
      */
-    void setEvent( string newEvent );
+    void addEvent( Event* newEvent );
 
     /** Add doubles event to events, Or changes the partner for current event.
      *
@@ -106,44 +104,50 @@ class Player {
      * @return Returns the name of the old partner if replacing. Otherwise 
      *         returns the name of the current partner for the event.
      */
-    string setEvent( string newEvent, string newPartner );
+    Player* addEvent( Event* newEvent, Player* newPartner );
 
     /** Gets this player's name.
      *
      * @return Returns this player's name.
      */
-    string getName();
+    std::string getName();
 
     /** Gets this player's email.
      *
      * @return Returns this player's email.
      */
-    string getEmail();
+    std::string getEmail();
 
     /** Gets this player's shirt size.
      *
      * @return Returns this player's shirt size.
      */
-    string getSize();
+    std::string getSize();
 
     /** Gets this player's phone number.
      *
      * @return Returns this player's phone number.
      */
-    string getPhoneNumber();
+    std::string getPhoneNumber();
 
     /** Gets this player's comments.
      *
      * @return Returns this player's comments.
      */
-    string getComments();
+    std::string getComments();
+    
+    /** Gets this player's number of events.
+     *
+     * @return Returns the number of events the player is in.
+     */
+    int getNumEvents();
 
     /** Remove an event. 
      *
      * @param oldEvent The existing event to remove.
      * @return Returns true if successful, false otherwise.
      */
-    bool removeEvent( string oldEvent );
+    bool removeEvent( Event* oldEvent );
 };
 
 #endif /* PLAYER_HPP */

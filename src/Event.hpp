@@ -14,6 +14,8 @@
 
 #include "Player.hpp"
 
+class Player;
+
 class Event {
     
 protected:

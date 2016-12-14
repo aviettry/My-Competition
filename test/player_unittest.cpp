@@ -14,11 +14,10 @@
 class PlayerTest : public testing::Test {
 protected:
     Player* player;
-    std::unordered_map<std::string, std::string> events;
-    int numEvents;
+    std::unordered_map<Event*, Player*> events;
     
     PlayerTest() {
-        player = new Player("Email", "Name", "Gender", "Size", "Phone", events, "Comments", numEvents);
+        player = new Player("Email", "Name", "Gender", "Size", "Phone", events, "Comments");
     }
     virtual ~PlayerTest() {
         delete player;
