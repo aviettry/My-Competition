@@ -8,25 +8,19 @@
 # My-Competition
 This repository contains the files necessary to run My Competition, a simple 
 program designed to create a user-friendly data manager for competitions.
-<br/>
-~~~~~ How to Compile ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<br/>
-*
-<br/>
-~~~~~ How to Run ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<br/>
-*
-<br/>
-~~~~~ Normal Output ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<br/>
-*
-<br/>
-~~~~~ Abnormal Output ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<br/>
-*
-<br/>
-~~~~~ How to Test ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<br/>
-*
-<br/>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+## How to Compile 
+Write stuff here
+##
+## How to Run 
+Write stuff here
+##
+## Normal Output 
+Write stuff here
+##
+## Abnormal Output 
+Write stuff here
+##
+## How to Test 
+Write stuff here
+##
