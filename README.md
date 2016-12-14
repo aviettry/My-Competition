@@ -30,4 +30,3 @@ program designed to create a user-friendly data manager for competitions.
 *
 <br/>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<br/>
