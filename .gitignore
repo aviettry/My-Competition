@@ -1,0 +1,7 @@
+*.o
+../*/*.o
+../src/*.o
+core*
+*.swp
+MyCompetition
+
