@@ -6,7 +6,16 @@
 //
 //
 
+/**
+ * Filename: Player.cpp
+ * Authors: Ali Viettry, Martin Hung
+ * Description: 
+ * Date Created: 2016-12-12, Martin Hung
+ * Last Modified: 2016-12-14, Ali Viettry
+ */
+
 #include "Player.hpp"
+#include "Validate.hpp"
 
 Player::Player() {}
 
@@ -27,35 +36,53 @@ Player::Player(std::string email,
     this->comments = comments;
 }
 
-
-std::string Player::setEmail(std::string newEmail) {
+bool Player::setEmail(std::string newEmail) {
+    if( !checkEmail( newEmail ) ) {
+        return false;
+    }
     std::string temp = email;
     email = newEmail;
-    return temp;
+    return true;
 }
 
-std::string Player::setSize(std::string newSize) {
+bool Player::setSize(std::string newSize) {
+    if( !checkSize( newSize ) ) {
+        return false;
+    }
     std::string temp = size;
     size = newSize;
-    return temp;
+    return true;
 }
 
-std::string Player::setPhoneNumber(std::string newPhone) {
+bool Player::setPhoneNumber(std::string newPhone) {
+    if( !checkPhoneNumber( newPhone ) ) {
+        return false;
+    }
     std::string temp = phone;
     phone = newPhone;
-    return temp;
+    return true;
 }
 
 
-void Player::addEvent(Event* newEvent) {
+bool Player::addEvent(Event* newEvent) {
+    /* TODO: Write this function some point in time.
+    if( !checkEvent( newEvent ) ) {
+        return false;
+    }
+    */
     events[newEvent] = nullptr;
+    return true;
 }
 
-Player* Player::addEvent(Event* newEvent, Player* newPartner) {
+bool Player::addEvent(Event* newEvent, Player* newPartner) {
+    /* TODO: Write this function some point in time.
+    if( !checkEvent( newEvent ) ) {
+        return false;
+    }
+    */
     Player* temp = events[newEvent];
     events[newEvent] = newPartner;
-    return (temp == nullptr) ? newPartner : temp;
-    
+    return true;
 }
 
 
@@ -68,4 +95,4 @@ std::string Player::getEmail() { return email; }
 std::string Player::getSize() { return size; }
 std::string Player::getPhoneNumber() { return phone; }
 std::string Player::getComments() { return comments; }
-int Player::getNumEvents() { return events.size(); }
+std::string Player::getNumEvents() { return events.size(); }

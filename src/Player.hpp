@@ -1,10 +1,10 @@
-/**
+/** TODO: Always edit "last modified"
  * Filename: Player.hpp
  * Authors: Ali Viettry, Martin Hung
  * Description: This class will define nodes that store all information for a
  *              player who has registered for the competition.  
  * Date of Start: 2016-12-12
- * Last Modified: 2016-12-12, Ali Viettry
+ * Last Modified: 2016-12-14, Ali Viettry
  */
 
 #ifndef PLAYER_HPP
@@ -73,38 +73,38 @@ class Player {
     /** Change the current email address.
      *
      * @param newEmail The new email address for this player.
-     * @return Returns the old email address.
+     * @return Returns true if the change was successful, false otherwise.
      */
-    std::string setEmail( std::string newEmail );
+    bool setEmail( std::string newEmail );
     
     /** Change the current shirt size. 
      *
      * @param newSize The new size for this player.
-     * @return Returns the old size.
+     * @return Returns true if the change was successful, false otherwise..
      */
-    std::string setSize( std::string newSize );
+    bool setSize( std::string newSize );
 
     /** Change the current phone number.
      * 
      * @param newPhone The new phone number for this player. 
-     * @return Returns the old phone number.
+     * @return Returns true if the change was successful, false otherwise..
      */
-    std::string setPhoneNumber( std::string newPhone );
+    bool setPhoneNumber( std::string newPhone );
 
     /** Add singles event to events.
      *
      * @param newEvent The singles event to add for this player.
+     * @return Returns true if the event was added, false otherwise.
      */
-    void addEvent( Event* newEvent );
+    bool addEvent( Event* newEvent );
 
     /** Add doubles event to events, Or changes the partner for current event.
      *
      * @param newEvent The new event for this player.
      * @param newPartner The partner for the event.
-     * @return Returns the name of the old partner if replacing. Otherwise 
-     *         returns the name of the current partner for the event.
+     * @return Returns true if the event was added, false otherwise.
      */
-    Player* addEvent( Event* newEvent, Player* newPartner );
+    bool addEvent( Event* newEvent, Player* newPartner );
 
     /** Gets this player's name.
      *
