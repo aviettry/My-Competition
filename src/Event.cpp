@@ -33,6 +33,7 @@ bool Event::addPlayer(Player* player) {
 }
 
 bool Event::removePlayer(std::string name) {
+    players.remove( findPlayer( name ) );
     return false;
 }
 
