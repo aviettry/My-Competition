@@ -28,13 +28,19 @@ int Event::getNumPlayers() {
 }
 
 bool Event::addPlayer(Player* player) {
+    if( findPlayer( player->name ) ) {
+      return false;
+    }
     players.push_back(player);
     return true;
 }
 
 bool Event::removePlayer(std::string name) {
+    if( findPlayer( name ) ) {
+      return false;
+    }
     players.remove( findPlayer( name ) );
-    return false;
+    return true;
 }
 
 Player* findPlayer(std::string name) {

@@ -36,58 +36,40 @@ Player::Player(std::string email,
     this->comments = comments;
 }
 
-bool Player::setEmail(std::string newEmail) {
-    if( !checkEmail( newEmail ) ) {
-        return false;
-    }
+void Player::setEmail(std::string newEmail) {
     std::string temp = email;
     email = newEmail;
-    return true;
+    return;
 }
 
-bool Player::setSize(std::string newSize) {
-    if( !checkSize( newSize ) ) {
-        return false;
-    }
+void Player::setSize(std::string newSize) {
     std::string temp = size;
     size = newSize;
-    return true;
+    return;
 }
 
-bool Player::setPhoneNumber(std::string newPhone) {
-    if( !checkPhoneNumber( newPhone ) ) {
-        return false;
-    }
+void Player::setPhoneNumber(std::string newPhone) {
     std::string temp = phone;
     phone = newPhone;
-    return true;
+    return;
 }
 
 
-bool Player::addEvent(Event* newEvent) {
-    /* TODO: Write this function some point in time.
-    if( !checkEvent( newEvent ) ) {
-        return false;
-    }
-    */
+void Player::addEvent(Event* newEvent) {
     events[newEvent] = nullptr;
-    return true;
+    return;
 }
 
-bool Player::addEvent(Event* newEvent, Player* newPartner) {
-    /* TODO: Write this function some point in time.
-    if( !checkEvent( newEvent ) ) {
-        return false;
-    }
-    */
+void Player::addEvent(Event* newEvent, Player* newPartner) {
     Player* temp = events[newEvent];
     events[newEvent] = newPartner;
-    return true;
+    return;
 }
 
 
-bool Player::removeEvent(Event* oldEvent) {
-    return (bool) events.erase(oldEvent);
+void Player::removeEvent(Event* oldEvent) {
+    events.erase(oldEvent);
+    return;
 }
 
 std::string Player::getName() { return name; }
