@@ -10,19 +10,22 @@
  */
 
 #include <iostream>
+#include <string>
+#include <unordered_map>
 
+#include "Player.hpp"
+#include "Event.hpp"
 #include "Tournament.hpp"
 
-bool readFromFile( char* in_filename, char* out_filenam,e ) {
-	ifstream infile(in_filename);
+#define COLUMNS 14
 
-  //Set the weighted bool
-  weighted = use_weighted_edges;
+bool readFromFile( char* in_filename, char* out_filenam ) {
+	ifstream infile(in_filename);
   bool have_header = false;
 
   // keep reading lines until the end of file is reached
   while (infile) {
-    string s;
+    std::string s;
 
     // get the next line
     if (!getline( infile, s )) break;
@@ -34,10 +37,10 @@ bool readFromFile( char* in_filename, char* out_filenam,e ) {
     }
 
     istringstream ss( s );
-    vector <string> record;
+    vector <std::string> record;
 
     while (ss) {
-      string next;
+      std::string next;
 
       // get the next string before hitting a tab character and put it in
       // 'next'
@@ -45,20 +48,29 @@ bool readFromFile( char* in_filename, char* out_filenam,e ) {
       record.push_back( next );
     }
 
-    if (record.size() != 3) {
-      // we should have exactly 3 columns
+    // We have 14 columns, but need to use only 13
+    if (record.size() != COLUMNS) {
       continue;
     }
 
-    string actor_name(record[0]);
-    string movie_title(record[1]);
-	  int movie_year = stoi(record[2]);
+    std::string email(record[1]);
+    std::string name(record[2]+" "+record[3]);
+    std::string gender(record[4]);
+    std::string shirt_size(record[5]);
+    std::string phone_number(record[6]);
+    std::string first_event(record[7]);
+    std::string first_partner(record[8]);
+    std::string second_event(record[9]);
+    std::string second_partner(record[10]);
+    std::string third_event(record[11]);
+    std::string third_partner(record[12]);
+    std::string comments(record[13]);
 
-    string movie(record[1] + "#@" + record[2] );
-
-    // we have an actor/movie relationship, now what?
-
-    edge( movie, actor_name );
+    // Player info set, now we need to create all the players and add them to
+    // our set<Player*>
+    
+    Player* newPlayer = new Player( 
+        email, name, gender, shirt_size, phone_number, events, comments );
   }
 
   if (!infile.eof()) {
