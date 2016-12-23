@@ -12,6 +12,9 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
+#include <fstream>
+#include <sstream>
 
 #include "Player.hpp"
 #include "Event.hpp"
@@ -19,7 +22,8 @@
 
 #define COLUMNS 14
 
-bool readFromFile( char* in_filename, char* out_filenam ) {
+bool readFromFile( char* in_filename, char* out_filename ) {
+  this->outfile = out_filename;
 	ifstream infile(in_filename);
   bool have_header = false;
 
@@ -66,9 +70,28 @@ bool readFromFile( char* in_filename, char* out_filenam ) {
     std::string third_partner(record[12]);
     std::string comments(record[13]);
 
+    std::vector<std::string, std::string> player_events;
+    for( int i = 7; i < 13; i+=2 ) {
+      std::string str(record[i]);
+      std::string str2(record[i+1]);
+      if( !str.empty() ) {
+        player_event.push_back(str2);
+        player_event.push_back(str);
+      }
+    }
+
+
+
     // Player info set, now we need to create all the players and add them to
     // our set<Player*>
-    
+
+    unordered_map<Event*, Player*> events;
+    auto itr = player_events.begin();
+    while( itr != player_events.end() ) {
+      
+      itr++;
+    }
+
     Player* newPlayer = new Player( 
         email, name, gender, shirt_size, phone_number, events, comments );
   }

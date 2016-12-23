@@ -34,7 +34,7 @@ protected:
     Player* first_seed;    
     Player* second_seed;    
     Player* third_seed;    
-    Player* fourth_seed;;    
+    Player* fourth_seed;   
     
 public:
     Event(std::string name);
